@@ -1,0 +1,33 @@
+{
+  "name": "task-manager",
+  "version": "0.1.0",
+  "description": "Simple task manager",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gudzii-ov/project-lvl4-s445.git"
+  },
+  "keywords": [
+    "koa",
+    "hexlet"
+  ],
+  "author": "Oleg Gudzii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gudzii-ov/project-lvl4-s445/issues"
+  },
+  "homepage": "https://github.com/gudzii-ov/project-lvl4-s445#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
