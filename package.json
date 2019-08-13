@@ -39,6 +39,7 @@
     "webpack-cli": "^3.3.6"
   },
   "dependencies": {
+    "dotenv": "^8.0.0",
     "eslint-plugin-react": "^7.14.3",
     "koa": "^2.7.0",
     "rollbar": "^2.11.0"
