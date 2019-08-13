@@ -8,4 +8,6 @@ start-devel:
 	npx nodemon --exec npx babel-node './server.js'
 
 start:
-	npx babel-node './server.js'
+	rm -rf dist
+	npm run build-server
+	node ./dist/server.js

@@ -4,6 +4,7 @@
   "description": "Simple task manager",
   "main": "index.js",
   "scripts": {
+    "build-server": "babel server.js --out-dir dist --source-maps inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
