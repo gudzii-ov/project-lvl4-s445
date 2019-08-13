@@ -1,8 +1,15 @@
-import Koa from 'koa';
 import dotenv from 'dotenv';
+import Koa from 'koa';
+import Rollbar from 'rollbar';
 
 dotenv.config();
 const port = process.env.PORT;
+
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 
 const app = new Koa();
 
@@ -11,5 +18,5 @@ app.use(async (ctx) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server started on port ${port}.\n`);
+  rollbar.log(`Server started on port ${port}.\n`);
 });
