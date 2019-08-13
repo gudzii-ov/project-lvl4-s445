@@ -3,3 +3,6 @@ install-deps:
 
 lint:
 	npx eslint .
+
+server-start:
+	npx nodemon --exec babel-node './server.js'
