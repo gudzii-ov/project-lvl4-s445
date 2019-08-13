@@ -5,4 +5,4 @@ lint:
 	npx eslint .
 
 server-start:
-	npx nodemon --exec babel-node './server.js'
+	npx nodemon --exec npx babel-node './server.js'
