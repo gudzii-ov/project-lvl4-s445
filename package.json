@@ -4,8 +4,12 @@
   "description": "Simple task manager",
   "main": "index.js",
   "scripts": {
-    "build-server": "babel server.js --out-dir dist --source-maps inline",
+    "build-server": "webpack server.js --out-dir dist --source-maps inline",
+    "build": "npm run build-server",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "10.x"
   },
   "repository": {
     "type": "git",
@@ -36,7 +40,7 @@
     "koa-webpack": "^5.2.4",
     "nodemon": "^1.19.1",
     "prettier": "^1.18.2",
-    "webpack": "^4.39.1",
+    "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6"
   },
   "dependencies": {

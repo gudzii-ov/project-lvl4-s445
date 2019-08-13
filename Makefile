@@ -4,10 +4,11 @@ install-deps:
 lint:
 	npx eslint .
 
+build-server:
+	npm run build-server
+
 start-devel:
 	npx nodemon --exec npx babel-node './server.js'
 
 start:
-	rm -rf dist
-	npm run build-server
 	node ./dist/server.js
