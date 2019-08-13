@@ -2,7 +2,7 @@
   "name": "task-manager",
   "version": "0.1.0",
   "description": "Simple task manager",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
     "build-server": "webpack --source-maps inline",
     "build": "rm -rf dist && npm run build-server",
