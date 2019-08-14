@@ -8,8 +8,14 @@ export default () => {
   const app = new Koa();
   const router = new Router();
 
+  const publicPath = path.resolve(__dirname, '..', 'public');
+  const viewPath = path.resolve(__dirname, '..', 'views');
+
+  console.log(`Static files path: ${publicPath}`);
+  console.log(`Views path (pug): ${viewPath}`);
+
   app.use(
-    serve(path.join(__dirname, '..', 'public')),
+    serve(publicPath),
   );
 
   router.get('/', (ctx) => {
@@ -21,7 +27,7 @@ export default () => {
     .use(router.allowedMethods());
 
   const pug = new Pug({
-    viewPath: path.join(__dirname, '..', 'views'),
+    viewPath,
   });
 
   pug.use(app);
