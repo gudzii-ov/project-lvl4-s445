@@ -4,8 +4,7 @@
   "description": "Simple task manager",
   "main": "./server/index.js",
   "scripts": {
-    "build-server": "webpack --source-maps inline",
-    "build": "rm -rf dist && npm run build-server",
+    "build": "rm -rf dist && webpack --source-maps inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {

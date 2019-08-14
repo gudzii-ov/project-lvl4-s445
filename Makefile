@@ -4,8 +4,8 @@ install-deps:
 lint:
 	npx eslint .
 
-build-server:
-	npm run build-server
+build:
+	npm run build
 
 start-devel:
 	npx nodemon --exec npx babel-node './server/index.js'
