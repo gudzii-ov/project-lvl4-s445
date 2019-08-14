@@ -2,16 +2,46 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const autoprefixer = require('autoprefixer');
 
-module.exports = {
+const clientConfig = {
   mode: process.env.NODE_ENV || 'development',
-  entry: {
-    server: './server/index.js',
-    main: './src/index.js',
+  entry: ['./src/index.js'],
+  output: {
+    path: path.join(__dirname, 'public', 'assets'),
+    publicPath: '/public/assets',
+    filename: 'main.js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixer()],
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+
+const serverConfig = {
+  mode: process.env.NODE_ENV || 'development',
+  entry: ['./server/index.js'],
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: '/',
-    filename: '[name].js',
+    filename: 'server.js',
   },
   target: 'node',
   externals: [nodeExternals()],
@@ -24,20 +54,8 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [autoprefixer({})],
-            },
-          },
-        ],
-      },
     ],
   },
 };
+
+module.exports = [clientConfig, serverConfig];
