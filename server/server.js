@@ -8,11 +8,8 @@ export default () => {
   const app = new Koa();
   const router = new Router();
 
-  const publicPath = path.resolve(__dirname, '..', 'public');
-  const viewPath = path.resolve(__dirname, '..', 'views');
-
-  console.log(`Static files path: ${publicPath}`);
-  console.log(`Views path (pug): ${viewPath}`);
+  const publicPath = path.join(__dirname, '..', 'public');
+  const viewPath = path.join(__dirname, '..', 'views');
 
   app.use(
     serve(publicPath),
