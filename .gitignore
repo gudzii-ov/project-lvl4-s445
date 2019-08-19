@@ -3,4 +3,4 @@ coverage
 *.log
 dist
 .env
-public/assets
+public
