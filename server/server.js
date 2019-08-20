@@ -3,20 +3,29 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import serve from 'koa-static';
 import Pug from 'koa-pug';
+import koaWebpack from 'koa-webpack';
+
+import webpackConfig from '../webpack.config';
 
 export default () => {
   const app = new Koa();
   const router = new Router();
 
-  const publicPath = path.join(__dirname, '..', 'public');
   const viewPath = path.join(__dirname, '..', 'views');
+  console.log(viewPath);
 
   app.use(
-    serve(publicPath),
+    serve(path.join(__dirname, '..', 'public')),
   );
 
-  router.get('/', (ctx) => {
-    ctx.render('index.pug');
+  if (process.env.NODE_ENV !== 'production') {
+    koaWebpack({
+      config: webpackConfig[0],
+    }).then((m) => app.use(m));
+  }
+
+  router.get('root', '/', (ctx) => {
+    ctx.render('welcome/index');
   });
 
   app
@@ -25,6 +34,8 @@ export default () => {
 
   const pug = new Pug({
     viewPath,
+    noCache: process.env.NODE_ENV === 'development',
+    basedir: viewPath,
   });
 
   pug.use(app);
