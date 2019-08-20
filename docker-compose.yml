@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: task-manager-image
+    container_name: task-manager-app
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/node/app
+    networks:
+      - task-manager-network
+    command: make devel
+  db:
+    image: postgres:11.5
+    container_name: db
+    restart: unless-stopped
+    networks:
+      - task-manager-network
+
+networks:
+  task-manager-network:
+    driver: bridge
