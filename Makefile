@@ -14,7 +14,7 @@ start:
 	node ./dist/server.js
 
 compose-devel:
-	docker-compose up -d
+	docker-compose up
 
 compose-kill:
 	docker-compose kill
