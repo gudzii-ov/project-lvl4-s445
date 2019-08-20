@@ -4,7 +4,7 @@
   "description": "Simple task manager",
   "main": "./server/index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --source-maps inline",
+    "build": "rm -rf dist && webpack --source-maps inline --env prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -52,8 +52,10 @@
     "eslint-plugin-react": "^7.14.3",
     "jquery": "^3.4.1",
     "koa": "^2.7.0",
+    "koa-flash-simple": "0.0.3",
     "koa-pug": "^3.0.0-2",
     "koa-router": "^7.4.0",
+    "koa-session": "^5.12.2",
     "koa-static": "^5.0.0",
     "popper.js": "^1.15.0",
     "rollbar": "^2.11.0"
