@@ -13,7 +13,19 @@ devel:
 start:
 	node ./dist/server.js
 
+prepare:
+	touch .env
+
+compose-build:
+	docker-compose build
+
+compose-install:
+	docker-compose run web npm install
+
+compose-setup: prepare compose-build compose-install
+
 compose-devel:
+	docker-compose run web npm run build
 	docker-compose up
 
 compose-kill:
