@@ -28,6 +28,9 @@ compose-devel:
 	docker-compose run web npm run build
 	docker-compose up
 
+compose-console:
+	docker-compose run web npx gulp console
+
 compose-kill:
 	docker-compose kill
 
