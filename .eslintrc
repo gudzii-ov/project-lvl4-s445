@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "babel"
+    "babel",
+    "jest"
   ],
   "parser": "babel-eslint",
   "rules": {
@@ -14,9 +15,11 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": [
-    "airbnb"
+    "airbnb",
+    "plugin:jest/recommended"
   ]
 }

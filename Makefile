@@ -1,11 +1,14 @@
 install-deps:
 	npm install
 
+build:
+	npm run build
+
 lint:
 	npx eslint .
 
-build:
-	npm run build
+test:
+	npm test
 
 devel:
 	npx nodemon --exec npx babel-node './server/index.js'
@@ -37,3 +40,11 @@ compose-kill:
 compose-dist-build:
 	rm -rf dist
 	docker-compose run web make build
+
+compose-test:
+	docker-compose run web make test
+
+compose-bash:
+	docker-compose run web bash
+
+.PHONY: test
