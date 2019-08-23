@@ -40,14 +40,14 @@ export default () => {
 
   const pug = new Pug({
     viewPath,
+    locals: {},
     noCache: process.env.NODE_ENV === 'development',
     basedir: viewPath,
     helperPath: [
       { urlFor: (...args) => router.url(...args) },
     ],
+    app,
   });
-
-  pug.use(app);
 
   return app;
 };
