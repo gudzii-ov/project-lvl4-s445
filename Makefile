@@ -11,7 +11,7 @@ test:
 	npm test
 
 devel:
-	npx nodemon --exec npx babel-node './server/index.js'
+	npx nodemon --exec npx babel-node './index.js'
 
 start:
 	node ./dist/server.js
@@ -25,7 +25,10 @@ compose-build:
 compose-install:
 	docker-compose run web npm install
 
-compose-setup: prepare compose-build compose-install
+compose-db-setup:
+	docker-compose run web npx sequelize db:migrate
+
+compose-setup: prepare compose-build compose-install compose-db-setup
 
 compose-devel:
 	docker-compose run web npm run build

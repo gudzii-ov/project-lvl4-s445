@@ -12,7 +12,7 @@ import addRoutes from './routes';
 export default () => {
   const app = new Koa();
 
-  const viewPath = path.join(__dirname, '..', 'views');
+  const viewPath = path.join(__dirname, 'views');
 
   app.keys = ['some secret hurr'];
   app.use(session(app));
@@ -27,7 +27,7 @@ export default () => {
   });
 
   app.use(
-    serve(path.join(__dirname, '..', 'public')),
+    serve(path.join(__dirname, 'public')),
   );
 
   app.use(koaLogger());

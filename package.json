@@ -2,7 +2,7 @@
   "name": "task-manager",
   "version": "0.1.0",
   "description": "Simple task manager",
-  "main": "./server/index.js",
+  "main": "./index.js",
   "scripts": {
     "build": "rm -rf dist && webpack --source-maps inline --env prod",
     "test": "jest"
@@ -50,6 +50,7 @@
     "koa-webpack": "^5.2.4",
     "nodemon": "^1.19.1",
     "postcss-loader": "^3.0.0",
+    "sqlite3": "^4.1.0",
     "style-loader": "^1.0.0",
     "supertest": "^4.0.2",
     "webpack": "^4.39.2",
@@ -58,6 +59,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "crypto": "^1.0.1",
     "dotenv": "^8.0.0",
     "eslint-plugin-react": "^7.14.3",
     "jquery": "^3.4.1",
@@ -68,7 +70,11 @@
     "koa-router": "^7.4.0",
     "koa-session": "^5.12.2",
     "koa-static": "^5.0.0",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
     "popper.js": "^1.15.0",
-    "rollbar": "^2.11.0"
+    "rollbar": "^2.11.0",
+    "sequelize": "^5.18.1",
+    "sequelize-cli": "^5.5.1"
   }
 }
