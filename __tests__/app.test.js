@@ -20,16 +20,8 @@ describe('requests', () => {
     expect(res).toHaveHTTPStatus(200);
 
     const res2 = await request.agent(server)
-      .get('/users');
-    expect(res2).toHaveHTTPStatus(200);
-
-    const res3 = await request.agent(server)
       .get('/users/new');
-    expect(res3).toHaveHTTPStatus(200);
-
-    const res4 = await request.agent(server)
-      .post('/users');
-    expect(res4).toHaveHTTPStatus(308);
+    expect(res2).toHaveHTTPStatus(200);
   });
 
   it('GET 404', async () => {

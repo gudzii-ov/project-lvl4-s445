@@ -6,7 +6,7 @@
   "scripts": {
     "build-prod": "rm -rf dist && webpack --source-maps inline --env prod",
     "build-dev": "rm -rf dist && webpack --source-maps inline --env dev",
-    "test": "jest"
+    "test": "NODE_ENV=test jest"
   },
   "engines": {
     "node": "10.x"
