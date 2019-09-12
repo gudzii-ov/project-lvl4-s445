@@ -6,6 +6,9 @@ import Pug from 'koa-pug';
 import session from 'koa-session';
 import flash from 'koa-flash-simple';
 import koaLogger from 'koa-logger';
+import bodyParser from 'koa-bodyparser';
+import methodOverride from 'koa-methodoverride';
+import _ from 'lodash';
 
 import addRoutes from './routes';
 
@@ -26,6 +29,15 @@ export default () => {
     await next();
   });
 
+  app.use(bodyParser());
+  app.use(methodOverride((req) => {
+    // return req?.body?._method;
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+      return req.body._method; // eslint-disable-line
+    }
+    return null;
+  }));
+
   app.use(
     serve(path.join(__dirname, 'public')),
   );
@@ -43,6 +55,7 @@ export default () => {
     noCache: process.env.NODE_ENV === 'development',
     basedir: viewPath,
     helperPath: [
+      { _ },
       { urlFor: (...args) => router.url(...args) },
     ],
   });

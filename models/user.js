@@ -1,7 +1,7 @@
 import { encrypt } from '../lib/secure';
 
 export default (sequelize, DataTypes) => {
-  const User = sequelize.define('user', {
+  const User = sequelize.define('User', {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: {
@@ -27,6 +27,15 @@ export default (sequelize, DataTypes) => {
       validate: {
         len: [1, 32],
       },
+    },
+  }, {
+    getterMethods: {
+      fullName() {
+        return `${this.firstName} ${this.lastName}`;
+      },
+      // associate(models) {
+      //   // associations can be defined here
+      // },
     },
   });
 
