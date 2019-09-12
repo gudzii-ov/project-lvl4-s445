@@ -1,8 +1,11 @@
 install-deps:
 	npm install
 
-build:
-	npm run build
+build-prod:
+	npm run build-prod
+
+build-dev:
+	npm run build-dev
 
 lint:
 	npx eslint .
@@ -10,7 +13,7 @@ lint:
 test:
 	npm test
 
-devel:
+devel: build-dev
 	npx nodemon --exec npx babel-node './index.js'
 
 start:
@@ -31,7 +34,7 @@ compose-db-setup:
 compose-setup: prepare compose-build compose-install compose-db-setup
 
 compose-devel:
-	docker-compose run web npm run build
+	docker-compose run web npm run build-dev
 	docker-compose up
 
 compose-console:
