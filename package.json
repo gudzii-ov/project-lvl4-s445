@@ -4,10 +4,9 @@
   "description": "Simple task manager",
   "main": "./index.js",
   "scripts": {
-    "build-prod": "rm -rf dist && webpack --source-maps inline --env prod",
-    "build-dev": "rm -rf dist && webpack --source-maps inline --env dev",
-    "build": "npm run build-prod",
+    "build": "webpack --source-maps inline --env prod",
     "start": "gulp server",
+    "postinstall": "npm run build",
     "test": "NODE_ENV=test jest"
   },
   "engines": {

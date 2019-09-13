@@ -11,6 +11,7 @@ import methodOverride from 'koa-methodoverride';
 import _ from 'lodash';
 
 import addRoutes from './routes';
+import container from './container';
 
 export default () => {
   const app = new Koa();
@@ -44,15 +45,18 @@ export default () => {
 
   app.use(koaLogger());
   const router = new Router();
-  addRoutes(router);
+  addRoutes(router, container);
 
-  app
-    .use(router.allowedMethods())
-    .use(router.routes());
+  app.use(router.allowedMethods());
+  app.use(router.routes());
 
   const pug = new Pug({
     viewPath,
     noCache: process.env.NODE_ENV === 'development',
+    // debug: true,
+    pretty: true,
+    // compileDebug: true,
+    locals: [],
     basedir: viewPath,
     helperPath: [
       { _ },

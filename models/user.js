@@ -25,7 +25,7 @@ export default (sequelize, DataTypes) => {
         return value;
       },
       validate: {
-        len: [1, 32],
+        len: [1, +Infinity],
       },
     },
   }, {
@@ -38,6 +38,5 @@ export default (sequelize, DataTypes) => {
       // },
     },
   });
-
   return User;
 };

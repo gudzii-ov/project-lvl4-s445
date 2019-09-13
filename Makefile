@@ -28,7 +28,7 @@ compose-db-setup:
 compose-setup: prepare compose-build compose-install compose-db-setup
 
 compose-devel:
-	docker-compose run web npm run build-dev
+	docker-compose run web npm run build
 	docker-compose up
 
 compose-console:

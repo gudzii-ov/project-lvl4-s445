@@ -1,5 +1,5 @@
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
+// const nodeExternals = require('webpack-node-externals');
 const autoprefixer = require('autoprefixer');
 
 const clientConfig = {
@@ -36,30 +36,30 @@ const clientConfig = {
   },
 };
 
-const serverConfig = {
-  mode: process.env.NODE_ENV || 'development',
-  entry: ['./index.js'],
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'server.js',
-  },
-  target: 'node',
-  node: {
-    __dirname: false,
-    __filename: false,
-  },
-  externals: [nodeExternals()],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-    ],
-  },
-};
+// const serverConfig = {
+//   mode: process.env.NODE_ENV || 'development',
+//   entry: ['./index.js'],
+//   output: {
+//     path: path.join(__dirname, 'dist'),
+//     filename: 'server.js',
+//   },
+//   target: 'node',
+//   node: {
+//     __dirname: false,
+//     __filename: false,
+//   },
+//   externals: [nodeExternals()],
+//   module: {
+//     rules: [
+//       {
+//         test: /\.js$/,
+//         exclude: /node_modules/,
+//         use: {
+//           loader: 'babel-loader',
+//         },
+//       },
+//     ],
+//   },
+// };
 
-module.exports = [clientConfig, serverConfig];
+module.exports = [clientConfig];
