@@ -1,7 +1,7 @@
 install-deps:
 	npm install
 
-build-prod: install-deps
+build-prod:
 	npm run build-prod
 
 build-dev:
@@ -16,7 +16,7 @@ test:
 devel: build-dev
 	npx nodemon --exec npx babel-node './index.js'
 
-start: build-prod
+start:
 	cp -r ./views ./dist/
 	cp -r ./public ./dist/
 	cp -r ./models ./dist/
