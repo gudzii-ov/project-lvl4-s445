@@ -31,7 +31,6 @@
   "homepage": "https://github.com/gudzii-ov/project-lvl4-s445#readme",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "autoprefixer": "^9.6.1",
@@ -59,6 +58,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@babel/core": "^7.6.0",
     "@babel/register": "^7.6.0",
     "bootstrap": "^4.3.1",
     "crypto": "^1.0.1",
