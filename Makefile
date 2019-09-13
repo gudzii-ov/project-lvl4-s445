@@ -1,7 +1,7 @@
 install-deps:
 	npm install
 
-build-prod:
+build-prod: install-deps
 	npm run build-prod
 
 build-dev:
