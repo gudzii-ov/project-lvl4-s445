@@ -16,7 +16,10 @@ test:
 devel: build-dev
 	npx nodemon --exec npx babel-node './index.js'
 
-start:
+start: build-prod
+	cp -r ./views ./dist/
+	cp -r ./public ./dist/
+	cp -r ./models ./dist/
 	node ./dist/server.js
 
 prepare:
