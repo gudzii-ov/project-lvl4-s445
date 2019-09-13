@@ -1,26 +1,17 @@
 install-deps:
 	npm install
 
-build-prod:
-	npm run build-prod
-
-build-dev:
-	npm run build-dev
-
 lint:
 	npx eslint .
 
 test:
 	npm test
 
-devel: build-dev
+devel:
 	npx nodemon --exec npx babel-node './index.js'
 
 start:
-	cp -r ./views ./dist/
-	cp -r ./public ./dist/
-	cp -r ./models ./dist/
-	node ./dist/server.js
+	npm start
 
 prepare:
 	touch .env
