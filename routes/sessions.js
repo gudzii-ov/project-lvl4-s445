@@ -8,11 +8,6 @@ export default (router) => {
       const data = {};
       await ctx.render('sessions/new', { f: buildFormObj(data) });
     })
-    // .get('session', '/session', async (ctx) => {
-    //   const body = ctx.request;
-    //   console.log(body);
-    //   await ctx.redirect(router.url('root'));
-    // })
     .post('session', '/session', async (ctx) => {
       const { email, password } = ctx.request.body.form;
       const user = await User.findOne({
