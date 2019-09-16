@@ -1,6 +1,7 @@
 const path = require('path');
 // const nodeExternals = require('webpack-node-externals');
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 const clientConfig = {
   mode: process.env.NODE_ENV || 'development',
@@ -34,6 +35,13 @@ const clientConfig = {
       },
     ],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+    }),
+  ],
 };
 
 // const serverConfig = {

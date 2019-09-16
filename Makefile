@@ -8,6 +8,7 @@ test:
 	npm test
 
 devel:
+	npm run build
 	npx nodemon --exec npx babel-node './index.js'
 
 start:
