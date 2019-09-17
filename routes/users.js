@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import buildFormObj from '../lib/formObjectBuilder';
 import { User } from '../models';
 
@@ -26,7 +28,6 @@ export default (router) => {
           body: { form },
         },
       } = ctx;
-      console.log(form);
       const user = User.build(form);
       try {
         await user.save();
@@ -37,7 +38,6 @@ export default (router) => {
       }
     })
     .patch('users', '/users', async (ctx) => {
-      console.log('You are here');
       const { userId: id } = ctx.session;
       const {
         request: {
@@ -49,16 +49,12 @@ export default (router) => {
           id,
         },
       });
-      user.email = form.email;
-      user.firstName = form.firstName;
-      user.lastName = form.lastName;
+      _.assign(user, form);
       try {
         await user.save();
-        console.log('update success');
         ctx.flash.set('User info has been updated');
         await ctx.redirect(router.url('currentUser'));
       } catch (e) {
-        console.log('update failed');
         await ctx.render('users/current', { f: buildFormObj(user, e) });
       }
     });
