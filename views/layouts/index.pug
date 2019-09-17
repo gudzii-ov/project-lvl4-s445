@@ -10,10 +10,14 @@ html(lang="en")
   body
     .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.shadow-sm
       block title
+      a.mr-2(href=urlFor('users')) Users
       nav.my-2.my-md-0.mr-md-3
         if isSignedIn()
-            a.mr-1(href=urlFor('users')) Users
-            a.btn.btn-outline-primary(href=urlFor('session') data-method='delete' rel='nofollow') Sign Out
+            .dropdown
+              .btn.btn-secondary.dropdown-toggle(type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") User menu
+              .dropdown-menu(aria-labelledby="dropdownMenuButton")
+                a.dropdown-item(href=urlFor('user') data-method='patch' rel='nofollow') Settings
+                a.dropdown-item(href=urlFor('session') data-method='delete' rel='nofollow') Sign Out
         else
             a.btn.btn-outline-primary.mr-1(href=urlFor('newSession')) Sign In
             a.btn.btn-outline-primary(href=urlFor('newUser')) Sign Up
