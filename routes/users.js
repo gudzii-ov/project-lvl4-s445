@@ -57,5 +57,22 @@ export default (router) => {
       } catch (e) {
         await ctx.render('users/current', { f: buildFormObj(user, e) });
       }
+    })
+    .delete('users', '/users', async (ctx) => {
+      const { userId: id } = ctx.session;
+      const user = await User.findOne({
+        where: {
+          id,
+        },
+      });
+      try {
+        await user.destroy();
+        ctx.session = {};
+        ctx.flash.set('User has been deleted');
+        await ctx.redirect(router.url('root'));
+      } catch (e) {
+        ctx.flash.set('Unable to remove user');
+        await ctx.render('users/current', { f: buildFormObj(user, e) });
+      }
     });
 };

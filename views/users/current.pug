@@ -4,8 +4,15 @@ block title
   a.h5.my-0.mr-md-auto.font-weight-normal(href=urlFor('root')) Task manager
 
 block content
+  h5 Change user settings
+
   +formFor(f, { url: urlFor('users'), method: 'patch' })
     +input(f, 'email')
     +input(f, 'firstName')
     +input(f, 'lastName')
     +button(f, 'Save')
+
+  h5 Delete user
+
+  +formFor(f, { url: urlFor('users'), method: 'delete' })
+    +button(f, 'DELETE')
