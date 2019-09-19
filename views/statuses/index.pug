@@ -4,6 +4,8 @@ block title
   a.h5.my-0.mr-md-auto.font-weight-normal(href=urlFor('root')) Task manager
 
 block content
+  if isSignedIn()
+    a.btn.btn-outline-primary.mb-2(href=urlFor('newStatus')) Add new
   table.table.table-striped
     thead
       tr

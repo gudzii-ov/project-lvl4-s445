@@ -1,0 +1,10 @@
+extends /layouts/index.pug
+
+block title
+  a.h5.my-0.mr-md-auto.font-weight-normal(href=urlFor('root')) Task manager
+
+block content
+  h5 Add new task status form
+  +formFor(f, { url: urlFor('taskStatuses'), method: 'post' })
+    +input(f, 'name')
+    +button(f, 'Add')
