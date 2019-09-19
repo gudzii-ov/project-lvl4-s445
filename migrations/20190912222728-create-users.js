@@ -7,9 +7,11 @@ module.exports = {
       type: Sequelize.INTEGER,
     },
     email: {
+      allowNull: false,
       type: Sequelize.STRING,
     },
     passwordDigest: {
+      allowNuill: false,
       type: Sequelize.STRING,
     },
     firstName: {
