@@ -25,5 +25,21 @@ export default (router) => {
       } catch (e) {
         await ctx.render('statuses/new', { f: buildFormObj(status, e) });
       }
+    })
+    .delete('removeStatus', '/statuses/:id', async (ctx) => {
+      const { id } = ctx.params;
+      const status = await TaskStatus.findOne({
+        where: {
+          id,
+        },
+      });
+      try {
+        await status.destroy();
+        ctx.flash.set('Status removed');
+        await ctx.redirect(router.url('taskStatuses'));
+      } catch (e) {
+        ctx.flash.set('Unable to remove status');
+        await ctx.render('statuses');
+      }
     });
 };
