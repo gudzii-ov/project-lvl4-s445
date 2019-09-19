@@ -1,0 +1,16 @@
+extends /layouts/index.pug
+
+block title
+  a.h5.my-0.mr-md-auto.font-weight-normal(href=urlFor('root')) Task manager
+
+block content
+  table.table.table-striped
+    thead
+      tr
+        th Status name
+        th Created At
+    tbody
+      each status in statuses
+        tr
+          td= status.name
+          td= status.createdAt
