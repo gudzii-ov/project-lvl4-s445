@@ -65,7 +65,7 @@
     "dotenv": "^8.1.0",
     "eslint-plugin-react": "^7.14.3",
     "gulp": "^4.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-ujs": "^1.2.2",
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.1",
